@@ -1,31 +1,11 @@
 package pro.sky.java.course2.weblibrary.service;
 
-import org.springframework.stereotype.Service;
+public interface CalcService {
+    int plus(int num1, int num2);
 
-@Service
-public class CalcService {
-    public String showWelcome() {
-        return "Добро пожаловать в калькулятор!";
-    }
+    int minus(int num1, int num2);
 
-    public int plus(int num1, int num2) {
-        return num1 + num2;
-    }
+    int multiply(int num1, int num2);
 
-    public int minus(int num1, int num2) {
-        return num1 - num2;
-    }
-
-    public int multiply(int num1, int num2) {
-        return num1 * num2;
-    }
-
-    public String divide(int num1, int num2) {
-        if (num2 != 0) {
-            return num1 + "/" + num2 + "=" + num1 / num2;
-        } else {
-            return "На ноль делить нельзя!";
-        }
-    }
-
+    int divide(int num1, int num2);
 }

@@ -11,29 +11,36 @@ import pro.sky.java.course2.weblibrary.service.CalcService;
 public class CalculatorController {
     private final CalcService calc;
 
-    public CalculatorController (CalcService calc ){
-    this.calc = calc;}
+    public CalculatorController(CalcService calc) {
+        this.calc = calc;
+    }
 
     @GetMapping
     public String ShowWelcome() {
-        return calc.showWelcome();
+        return "Добро пожаловать в калькулятор!";
     }
 
     @GetMapping("/plus")
-    public String calcplus(@RequestParam int num1, @RequestParam int num2) {
+    public String calcPlus(@RequestParam int num1, @RequestParam int num2) {
         return num1 + "+" + num2 + " = " + calc.plus(num1, num2);
     }
 
     @GetMapping("/minus")
-    public String calcminus(@RequestParam int num1, @RequestParam int num2) {
+    public String calcMinus(@RequestParam int num1, @RequestParam int num2) {
         return num1 + "-" + num2 + " = " + calc.minus(num1, num2);
     }
+
     @GetMapping("/multiply")
     public String calculateMultiply(@RequestParam int num1, @RequestParam int num2) {
         return num1 + "*" + num2 + " = " + calc.multiply(num1, num2);
     }
+
     @GetMapping("/divide")
-    public String calcDivide(@RequestParam int num1, @RequestParam int num2) {
-        return  calc.divide(num1, num2);
+    public String divide(int num1, int num2) {
+        if (num2 != 0) {
+            return num1 + "/" + num2 + "=" + calc.divide(num1, num2);
+        } else {
+            return "На ноль делить нельзя!";
+        }
     }
 }
