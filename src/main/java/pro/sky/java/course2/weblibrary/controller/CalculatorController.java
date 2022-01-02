@@ -16,7 +16,7 @@ public class CalculatorController {
     }
 
     @GetMapping
-    public String ShowWelcome() {
+    public String showWelcome() {
         return "Добро пожаловать в калькулятор!";
     }
 
