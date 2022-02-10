@@ -1,6 +1,7 @@
 package pro.sky.java.course2.weblibrary.service;
 
 import org.springframework.stereotype.Service;
+import pro.sky.java.course2.weblibrary.exception.CalculatorIllegalArgumentException;
 
 @Service
 public class CalcServiceImpl implements CalcService {
@@ -21,6 +22,11 @@ public class CalcServiceImpl implements CalcService {
     }
 
     public int divide(int num1, int num2) {
+        if (num2 == 0) {
+            throw new CalculatorIllegalArgumentException();
+        }
         return num1 / num2;
     }
+
 }
+
